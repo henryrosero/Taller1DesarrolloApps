@@ -1,0 +1,68 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Inicio
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-button color="dark" routerLink="/contacto">
+  ir a contactos
+  <ion-icon name="walk-outline"></ion-icon>
+
+  </ion-button>
+  <ion-button color="dark" routerLink="/nosotros">
+  ir a nosotros
+  <ion-icon name="walk-outline"></ion-icon>
+  </ion-button>
+
+
+  <ion-item>
+    <ion-label position="floating">Nombre:</ion-label>
+    <ion-input [(ngModel)]="nombre" placeholder="ingresa tu nombre"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Apellido:</ion-label>
+    <ion-input [(ngModel)]="apellido" placeholder="ingresa tu apellido"></ion-input>
+  </ion-item>
+  
+  <ion-item>
+    <ion-label position="floating">Celular:</ion-label>
+    <ion-input [(ngModel)]="celular" placeholder="ingresa tu celular"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Email:</ion-label>
+    <ion-input [(ngModel)]="email" placeholder="ingresa tu correo electronico"></ion-input>
+  </ion-item>
+
+
+  <ion-button color="warning" (click)="guardarDatos()">
+    Guardar
+    <ion-icon name="checkbox-outline"></ion-icon>
+  </ion-button>
+
+  <ion-list>
+    <ion-item *ngFor="let usuario of usuarios">
+      <ion-label>{{usuario.nombre}}</ion-label>
+      <ion-label>{{usuario.apellido}}</ion-label>
+      <ion-label>{{usuario.celular}}</ion-label>
+      <ion-label>{{usuario.email}}</ion-label>
+
+      <ion-button size="small" color="medium" (click)="editar(usuario)">
+          Editar
+          <ion-icon name="clipboard-outline"></ion-icon>
+      </ion-button>
+      
+      <ion-button size="small" color="medium" (click)="eliminar(usuario)">
+          Eliminar
+          <ion-icon name="trash-bin-outline"></ion-icon>
+      </ion-button>
+      
+    </ion-item>
+    
+  </ion-list>
+
+</ion-content>
